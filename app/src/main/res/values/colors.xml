@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#03dac4</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#03dac4</color>
+    <color name="surface">#364952</color>
+    <color name="surface_dark">#263238</color>
+    <color name="dark_white">#ECEFF1</color>
+    <color name="grey">#949C8F</color>
+    <color name="yellow">#E1FB36</color>
+    <color name="green">#55FB36</color>
+    <color name="blue">#366EFB</color>
+    <color name="purple">#F936FB</color>
+    <color name="red">#FB3636</color>
+    <color name="white">#fff</color>
+
+</resources>
+
+<!--<drawable name="selec">@drawable/selec</drawable>-->
