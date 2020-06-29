@@ -48,7 +48,6 @@ public class SearchFragment extends Fragment {
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context, 3);
         binding.searchRecyclerView.setLayoutManager(layoutManager);
-        binding.title.setText("SEARCH RESULT");
         try {
             String key = getArguments().getString("key");
 
@@ -62,20 +61,15 @@ public class SearchFragment extends Fragment {
         return view;
     }
 
-    public void getMovies(String key) {
+    private void getMovies(String key) {
 
         SearchViewModel movieViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         movieViewModel.getLiveData(key).observe(this, new Observer<List<Result>>() {
             @Override
             public void onChanged(List<Result> results) {
-                if (results!=null){
                     SearchAdapter adapter = new SearchAdapter(context, results);
                     binding.searchRecyclerView.setAdapter(adapter);
-                }
-                else{
-                    Log.d(TAG, "onChanged: " + "SEARCH REUSLT IS NULL");
-                }
-
+                    binding.searchProgress.setVisibility(View.INVISIBLE);
             }
         });
 

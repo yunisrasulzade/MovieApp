@@ -2,7 +2,6 @@ package com.example.movieapppaginationdatabinding.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.paging.PagedListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.movieapppaginationdatabinding.R;
-import com.example.movieapppaginationdatabinding.TestActivity;
 import com.example.movieapppaginationdatabinding.api.apiModel.movie.Result;
 import com.example.movieapppaginationdatabinding.databinding.MovieCardBinding;
 import com.example.movieapppaginationdatabinding.ui.MovieDetailsActivity;

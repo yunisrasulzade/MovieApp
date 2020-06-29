@@ -14,17 +14,13 @@
         <activity android:name=".ui.ActorDetailsActivity">
         </activity>
         <activity android:name=".ui.MovieDetailsActivity" />
-        <activity android:name=".TestActivity">
-        </activity>
-        <activity android:name=".ui.SplashActivity" android:theme="@style/SplashTheme">
 
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>
