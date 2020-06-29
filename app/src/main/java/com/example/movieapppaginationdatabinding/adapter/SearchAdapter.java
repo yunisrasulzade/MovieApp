@@ -44,7 +44,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.movieCardBinding.imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("yunis", "https://image.tmdb.org/t/p/w500/" + result.getPosterPath()+"    "+ result.getId());
+                Log.d("searchAdapter", "https://image.tmdb.org/t/p/w500/" + result.getPosterPath()+"    "+ result.getId());
                 Intent intent = new Intent(context, MovieDetailsActivity.class);
                 intent.putExtra("movieId",result.getId());
                 context.startActivity(intent);

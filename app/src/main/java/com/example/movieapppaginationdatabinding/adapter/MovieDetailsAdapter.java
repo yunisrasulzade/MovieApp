@@ -46,7 +46,7 @@ public class MovieDetailsAdapter extends RecyclerView.Adapter<MovieDetailsAdapte
         holder.castCardBinding.imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("yunis", "Artist id: " + cast.getId());
+                Log.d("MovieDetailsAdapter", "Artist id: " + cast.getId());
                 Intent intent = new Intent(context, ActorDetailsActivity.class);
                 intent.putExtra("personId", cast.getId());
                 context.startActivity(intent);

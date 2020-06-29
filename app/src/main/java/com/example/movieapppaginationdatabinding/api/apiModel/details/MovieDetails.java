@@ -223,7 +223,16 @@ public class MovieDetails extends BaseObservable {
     }
     @Bindable
     public Integer getRuntime() {
+
         return runtime;
+    }
+    public String minuteToHour(int minute) {
+        if (minute < 60) {
+            return String.valueOf(minute);
+        } else {
+            String converted = (minute / 60) + "h " + (minute % 60) + "m";
+            return converted;
+        }
     }
 
     public void setRuntime(Integer runtime) {

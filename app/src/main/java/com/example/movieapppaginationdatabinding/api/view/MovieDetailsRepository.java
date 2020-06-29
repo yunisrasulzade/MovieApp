@@ -1,7 +1,9 @@
 package com.example.movieapppaginationdatabinding.api.view;
 
 import android.app.Application;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.ProgressBar;
 
 import androidx.lifecycle.MutableLiveData;
 
@@ -22,13 +24,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MovieDetailsRepository {
+
     private MutableLiveData<MovieDetails> mutableLiveData = new MutableLiveData<>();
     private Application application;
     private MutableLiveData<Similar> similarMutableLiveData = new MutableLiveData<>();
     private MutableLiveData<MoviCredit> castMutableLiveData = new MutableLiveData<>();
     private MutableLiveData<VideoRoot> trailerLiveData = new MutableLiveData<>();
 
-    public static String TAG = "yunis";
+    public static String TAG = "movieDetailsRepository";
 
     public MovieDetailsRepository(Application application) {
         this.application = application;
@@ -37,6 +40,7 @@ public class MovieDetailsRepository {
     public MutableLiveData<MovieDetails> getMutableLiveData(int movieId) {
         ApiService apiService = RetrofitClientInstance.getRetrofitInstance().create(ApiService.class);
         Call<MovieDetails> call = apiService.getMovieDetails(movieId);
+
 
         call.enqueue(new Callback<MovieDetails>() {
             @Override
@@ -108,6 +112,7 @@ public class MovieDetailsRepository {
     }
 
     public MutableLiveData<VideoRoot> getTrailerLiveData(int movieId){
+
         ApiService apiService = RetrofitClientInstance.getRetrofitInstance().create(ApiService.class);
         Call<VideoRoot> call = apiService.getTrailer(movieId);
 
@@ -117,7 +122,6 @@ public class MovieDetailsRepository {
                 try {
                     trailerLiveData.setValue(response.body());
                 } catch (Exception e) {
-                    Log.d(TAG, "onResponse: " + "**************************");
                 }
             }
 

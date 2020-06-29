@@ -14,7 +14,7 @@ import com.example.movieapppaginationdatabinding.ui.PopularFragment;
 import com.example.movieapppaginationdatabinding.ui.SearchFragment;
 
 public class MainActivity extends AppCompatActivity {
-    String TAG = "yunis";
+    String TAG = "mainActivity";
     ActivityMainBinding binding;
 
     @Override

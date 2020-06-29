@@ -11,6 +11,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,10 +49,14 @@ public class ActorDetailsActivity extends AppCompatActivity {
         detailsViewModel.getActorDetails(actorId).observe(this, new Observer<Actor>() {
             @Override
             public void onChanged(Actor actor) {
-                detailsBinding.setActor(actor);
+                if (actor!=null){
+                    detailsBinding.setActor(actor);
 
-                detailsBinding.fullname.setText(actor.getName());
-                detailsBinding.biography.setText(actor.getBiography());
+                    detailsBinding.fullname.setText(actor.getName());
+                    detailsBinding.biography.setText(actor.getBiography());
+                    detailsBinding.actorProgress.setVisibility(View.INVISIBLE);
+                    detailsBinding.actorDetailsLayout.setVisibility(View.VISIBLE);
+                }
             }
         });
     }

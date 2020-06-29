@@ -4,47 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.paging.PagedList;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.movieapppaginationdatabinding.Handler;
 import com.example.movieapppaginationdatabinding.adapter.MovieDetailsAdapter;
 import com.example.movieapppaginationdatabinding.R;
 import com.example.movieapppaginationdatabinding.adapter.SimilarAdapter;
 import com.example.movieapppaginationdatabinding.api.apiModel.cast.MoviCredit;
 import com.example.movieapppaginationdatabinding.api.apiModel.details.MovieDetails;
-import com.example.movieapppaginationdatabinding.api.apiModel.movie.Result;
 import com.example.movieapppaginationdatabinding.api.apiModel.video.VideoRoot;
-import com.example.movieapppaginationdatabinding.api.apiRoot.ApiService;
-import com.example.movieapppaginationdatabinding.api.apiRoot.RetrofitClientInstance;
 import com.example.movieapppaginationdatabinding.api.similar.Similar;
 import com.example.movieapppaginationdatabinding.api.view.CastViewModel;
 import com.example.movieapppaginationdatabinding.api.view.MovieDetailsViewModel;
-import com.example.movieapppaginationdatabinding.api.view.MovieViewModel;
 import com.example.movieapppaginationdatabinding.api.view.SimilarViewModel;
 import com.example.movieapppaginationdatabinding.api.view.TrailerViewModel;
 import com.example.movieapppaginationdatabinding.databinding.ActivityMovieDetailsBinding;
 import com.google.android.material.snackbar.Snackbar;
-import com.squareup.picasso.Picasso;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MovieDetailsActivity extends AppCompatActivity {
-    String TAG = "yunis";
-    //    RecyclerView recyclerView;
+    String TAG = "movieDetailsActivity";
     int movieId;
     String trailerKey=null;
     ActivityMovieDetailsBinding binding;
@@ -57,16 +41,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         movieId = intent.getIntExtra("movieId", 0);
 
-        Handler handler = new Handler();
-
         binding = DataBindingUtil.setContentView(MovieDetailsActivity.this, R.layout.activity_movie_details);
-        binding.setHandler(handler);
 
-        getCast();
-        getDetails();
-        getSimilarMovies();
         getTrailer();
-
+        getDetails();
+        getCast();
+        getSimilarMovies();
     }
 
     public void showTrailer(View view) {
@@ -88,10 +68,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
         trailerViewModel.getTrailer(movieId).observe(this, new Observer<VideoRoot>() {
             @Override
             public void onChanged(VideoRoot videoRoot) {
-                trailerKey = videoRoot.getResults().get(0).getKey();
+                    trailerKey = videoRoot.getResults().get(0).getKey();
+//                    getCast();
             }
         });
-
     }
 
     public void getCast() {
@@ -105,13 +85,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
         castViewModel.getMovieDetails(movieId).observe(this, new Observer<MoviCredit>() {
             @Override
             public void onChanged(MoviCredit moviCredit) {
-                MovieDetailsAdapter movieDetailsAdapter = new MovieDetailsAdapter(moviCredit.getCast(), MovieDetailsActivity.this);
-                binding.castRecycler.setAdapter(movieDetailsAdapter);
+                    MovieDetailsAdapter movieDetailsAdapter = new MovieDetailsAdapter(moviCredit.getCast(), MovieDetailsActivity.this);
+                    binding.castRecycler.setAdapter(movieDetailsAdapter);
+//                    getDetails();
             }
         });
-
-
-
     }
 
     public void getDetails() {
@@ -119,8 +97,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieViewModel.getMovieDetails(movieId).observe(this, new Observer<MovieDetails>() {
             @Override
             public void onChanged(MovieDetails movieDetails) {
-                binding.setMovie(movieDetails);
-                binding.setGenres(movieDetails.getGenres().get(0));
+                    binding.setMovie(movieDetails);
+                    binding.setGenres(movieDetails.getGenres().get(0));
+//                    getSimilarMovies();
             }
         });
     }
@@ -136,23 +115,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
         similarViewModel.getSimilarMovies(movieId).observe(this, new Observer<Similar>() {
             @Override
             public void onChanged(Similar similar) {
-                SimilarAdapter similarAdapter = new SimilarAdapter(similar.getResults(), getApplicationContext());
-                binding.similarRecycler.setAdapter(similarAdapter);
+                    SimilarAdapter similarAdapter = new SimilarAdapter(similar.getResults(), getApplicationContext());
+                    binding.similarRecycler.setAdapter(similarAdapter);
+                    binding.progressDetail.setVisibility(View.INVISIBLE);
+                    binding.detailParent.setVisibility(View.VISIBLE);
             }
         });
-
-
     }
-
-    public String minuteToHour(int minute) {
-        if (minute < 60) {
-            return String.valueOf(minute);
-        } else {
-            String converted = (minute / 60) + "h " + (minute % 60) + "m";
-            return converted;
-        }
-
-
-    }
-
 }

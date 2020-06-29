@@ -46,18 +46,4 @@ public class YouTubeDialog extends DialogFragment {
 
         return v;
     }
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        try {
-//            Dialog dialog = getDialog();
-//            dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//
-//        }
-//        catch (Exception e){
-//            Log.d("qasim", "onStart: " + e);
-//        }
-//
-//    }
 }

@@ -46,8 +46,8 @@ public class SimilarAdapter extends RecyclerView.Adapter<SimilarAdapter.ViewHold
         holder.moviesCardBinding.similarMovie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("yunis", "onClick: " + position);
-                Log.d("yunis", "onClick: " + similarResult.getId());
+                Log.d("similaradapter", "onClick: " + position);
+                Log.d("similaradapter", "onClick: " + similarResult.getId());
                 try {
                     Intent intent = new Intent(context, MovieDetailsActivity.class);
                     intent.putExtra("movieId", similarResult.getId());
@@ -55,7 +55,7 @@ public class SimilarAdapter extends RecyclerView.Adapter<SimilarAdapter.ViewHold
 
                     context.startActivity(intent);
                 } catch (Exception e) {
-                    Log.d("yunis", "onClick: " + e);
+                    Log.d("similaradapter", "onClick: " + e);
                 }
             }
         });

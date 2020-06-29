@@ -1,10 +1,12 @@
 <resources>
-    <string name="app_name">MovieApp (Pagination+DataBinding)</string>
+    <string name="app_name">MovieApp</string>
     <string name="key">6455b4a645478f665c3e0e0d5cabf661</string>
     <string name="image_base_uri">https://image.tmdb.org/t/p/w500/</string>
     <string name="title_activity_actor_details">ActorDetailsActivity</string>
     <string name="youtube_api_key">AIzaSyANT5FMyug4HQEAiDYwZvAGTsl2CuWPcAU</string>
     <string name="budget">$%s</string>
+    <string name="runtime">%sm</string>
+    <string name="runtimeHour">%sh %sm</string>
     <string name="dash">-</string>
     <string name="noBio">No biography found</string>
     <string name="large_text">

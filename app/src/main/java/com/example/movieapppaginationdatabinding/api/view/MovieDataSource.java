@@ -21,7 +21,7 @@ import retrofit2.Response;
 public class MovieDataSource extends PageKeyedDataSource<Integer, Result> {
     private ApiService apiService;
     private Application application;
-    private String TAG = "yunis";
+    private String TAG = "movieDataSource";
 
     public MovieDataSource(ApiService apiService, Application application) {
         this.apiService = apiService;

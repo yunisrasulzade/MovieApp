@@ -8,6 +8,15 @@
         android:layout_height="match_parent"
         android:background="#263238">
 
+        <ProgressBar
+            android:id="@+id/search_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/search_recyclerView"
+            app:layout_constraintEnd_toEndOf="@+id/search_recyclerView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/search_recyclerView" />
+
         <TextView
             android:letterSpacing="0.2"
             android:fontFamily="@font/source_code_bold"

@@ -29,7 +29,7 @@
             bind:layout_constraintEnd_toEndOf="parent"
             bind:layout_constraintStart_toStartOf="parent"
             bind:layout_constraintTop_toTopOf="parent"
-            bind:castPath="@{result.posterPath}" />
+            bind:posterPath="@{result.posterPath}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

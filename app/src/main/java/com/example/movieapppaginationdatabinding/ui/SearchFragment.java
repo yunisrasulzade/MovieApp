@@ -29,7 +29,7 @@ public class SearchFragment extends Fragment {
     private SearchFragmentBinding binding;
     private MovieViewModel movieViewModel;
     private Context context;
-    String TAG = "yunis";
+    String TAG = "searchFragment";
 
     public SearchFragment(Context context) {
         this.context = context;
@@ -64,13 +64,18 @@ public class SearchFragment extends Fragment {
 
     public void getMovies(String key) {
 
-
         SearchViewModel movieViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         movieViewModel.getLiveData(key).observe(this, new Observer<List<Result>>() {
             @Override
             public void onChanged(List<Result> results) {
-                SearchAdapter adapter = new SearchAdapter(context, results);
-                binding.searchRecyclerView.setAdapter(adapter);
+                if (results!=null){
+                    SearchAdapter adapter = new SearchAdapter(context, results);
+                    binding.searchRecyclerView.setAdapter(adapter);
+                }
+                else{
+                    Log.d(TAG, "onChanged: " + "SEARCH REUSLT IS NULL");
+                }
+
             }
         });
 
