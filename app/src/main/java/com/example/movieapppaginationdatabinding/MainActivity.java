@@ -75,19 +75,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-///////////////////////////////////////////////////////////////////////////////////////
 
-
-//        movieViewModel = ViewModelProviders.of(this).get(MovieViewModel.class);
-
-//        getMovies();
-
-//        movieViewModel.getResults().observe(this, new Observer<List<Result>>() {
-//            @Override
-//            public void onChanged(List<Result> results) {
-//                PopularAdapter adapter = new PopularAdapter(MainActivity.this, results);
-//                binding.recyclerView.setAdapter(adapter);
-//            }
-//        });
 
 
