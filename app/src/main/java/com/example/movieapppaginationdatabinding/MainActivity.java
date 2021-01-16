@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     String TAG = "mainActivity";
     ActivityMainBinding binding;
 
+    //test
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
